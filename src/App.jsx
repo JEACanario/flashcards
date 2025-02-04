@@ -57,12 +57,11 @@ function FlashCard(q) {
   const [cardContent, setcardContent] = useState(q.question);
 
   function handleClick(e) {
+    e.target.classList.toggle("selected")
     if (cardContent === q.question) {
-      e.target.className = "selected";
       setcardContent(q.answer);
     } else {
       setcardContent(q.question);
-      e.target.className = "";
     }
   }
   return <li onClick={handleClick}>{cardContent}</li>;
